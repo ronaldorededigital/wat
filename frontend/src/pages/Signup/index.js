@@ -119,7 +119,7 @@ const SignUp = () => {
 			<CssBaseline />
 			<div className={classes.paper}>
 				<div>
-					<img style={{ margin: "0 auto", height: "80px", width: "100%" }} src={logo} alt="FireZAP" />
+					<img style={{ margin: "0 auto", height: "80px", width: "100%" }} src={logo} alt="Whatende" />
 				</div>
 				{/* <form className={classes.form} noValidate onSubmit={handleSignUp}> */}
 				<Formik
