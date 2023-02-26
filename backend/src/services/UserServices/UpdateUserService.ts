@@ -49,7 +49,7 @@ const UpdateUserService = async ({
     password: Yup.string()
   });
 
-  const { email, password, profile, name, queueIds = [] } = userData;
+  const { telefone, email, password, profile, name, queueIds = [] } = userData;
 
   try {
     await schema.validate({ email, password, profile, name });
@@ -74,6 +74,7 @@ const UpdateUserService = async ({
     id: user.id,
     name: user.name,
     email: user.email,
+	telefone: user.telefone,
     profile: user.profile,
     companyId: user.companyId,
     company,

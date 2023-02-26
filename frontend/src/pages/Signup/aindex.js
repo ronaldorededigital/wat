@@ -66,11 +66,11 @@ const useStyles = makeStyles(theme => ({
 
 const UserSchema = Yup.object().shape({
 	name: Yup.string()
-		.min(2, "muito curto!")
-		.max(50, "Muito Longo!")
-		.required("Requerido"),
-	password: Yup.string().min(5, "Muito curto!").max(50, "Muito Longo!"),
-	email: Yup.string().email("Email inválido").required("Requerido"),
+		.min(2, "Too Short!")
+		.max(50, "Too Long!")
+		.required("Required"),
+	password: Yup.string().min(5, "Too Short!").max(50, "Too Long!"),
+	email: Yup.string().email("Invalid email").required("Required"),
 });
 
 const SignUp = () => {
@@ -83,7 +83,7 @@ const SignUp = () => {
 		companyId = params.companyId
 	}
 
-	const initialState = { name: "", email: "", telefone: "",password: "", planId: "", };
+	const initialState = { name: "", email: "", password: "", planId: "", };
 
 	const [user] = useState(initialState);
 	const dueDate = moment().add(3, "day").format();
@@ -147,19 +147,6 @@ const SignUp = () => {
 										fullWidth
 										id="name"
 										label="Nome da Empresa"
-									/>
-								</Grid>
-								<Grid item xs={12}>
-									<Field
-										as={TextField}
-										autoComplete="telefone"
-										name="telefone"
-										//error={touched.telefone && Boolean(errors.telefone)}
-										//helperText={touched.name && errors.name}
-										variant="outlined"
-										fullWidth
-										id="telefone"
-										label="Telefone celular"
 									/>
 								</Grid>
 

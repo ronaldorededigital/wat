@@ -1,0 +1,221 @@
+import React from 'react';
+
+
+import { adaptV4Theme } from '@mui/material/styles';
+
+
+import {
+  Box,
+  Container,
+  Button,
+  CssBaseline,
+  Typography,
+  Stack,
+  IconButton,
+} from "@mui/material";
+import { createTheme, ThemeProvider, StyledEngineProvider } from "@mui/material";
+import TopBar from "./Components/TopBar";
+import Page from "./Page";
+import { styled } from "@mui/system";
+
+import { Facebook, Instagram, LinkedIn } from "@mui/icons-material";
+import whiteIcon from "./assets/whiteIcon.png";
+
+const ContainedButton = styled(Button)({
+  borderRadius: "10px",
+  width: "150px",
+  height: "50px",
+  textTransform: "none",
+  filter: "drop-shadow(11px 14px 17px rgba(37, 56, 92, 0.2))",
+});
+
+const CardBox = styled(Box)({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  width: "330px",
+  height: "340px",
+  backgroundColor: "#F4C2C9",
+  borderRadius: "40px 40px 0px 0px",
+  filter: "drop-shadow(11px 14px 17px rgba(37, 56, 92, 0.29))",
+});
+
+const ButtonTypography = styled(Typography)({
+  fontFamily: "Exo",
+  fontStyle: "normal",
+  fontWeight: "bold",
+  fontSize: "1rem",
+  lineHeight: "27px",
+  letterSpacing: "0.025em",
+  filter: "drop-shadow(11px 14px 17px rgba(37, 56, 92, 0.29))",
+});
+
+const SubtitleTypography = styled(Typography)({
+  fontFamily: "Exo, sans-serif",
+  variant: "h2",
+  component: "div",
+  fontSize: "48px",
+  fontWeight: "800",
+  lineHeight: "65px",
+});
+
+const CardSubtitleTypography = styled(Typography)({
+  fontFamily: "Exo",
+  fontSize: "24px",
+  fontStyle: "normal",
+  fontWeight: 800,
+  lineHeight: "33px",
+  letterSpacing: "0.025em",
+  textAlign: "center",
+});
+
+const TextTypography = styled(Typography)({
+  fontFamily: "Exo, sans-serif",
+  variant: "body1",
+  component: "div",
+  fontSize: "20px",
+  fontWeight: "400",
+  lineHeight: "27px",
+});
+
+const FooterBottomWave = styled(Box)({
+  position: "relative",
+  height: "150px",
+  width: "100%",
+  background: "#00ACC1",
+});
+
+const FooterTopWave = styled(Box)({
+  position: "absolute",
+  borderRadius: "100%",
+  width: "100%",
+  height: "75px",
+  backgroundColor: "#fff",
+  right: "0px",
+  top: "-40px",
+  filter: "drop-shadow(11px 14px 17px rgba(37, 56, 92, 0.15))",
+});
+
+const theme = createTheme(adaptV4Theme({
+  palette: {
+    primary: {
+      main: "#00ACC1",
+      contrastText: "#FFFFFF",
+      darker: "#053e85",
+    },
+    success: {
+      main: "#4783F0",
+      darker: "#053e85",
+    },
+    warning: {
+      main: "#00ACC1",
+      darker: "#053e85",
+    },
+    danger: {
+      main: "#25385C",
+      darker: "#053e85",
+    },
+    secondary: {
+      main: "#121212",
+      darker: "#053e85",
+    },
+  },
+}));
+
+function App() {
+  return <>
+    <CssBaseline />
+
+    <StyledEngineProvider injectFirst>
+      <ThemeProvider theme={theme}>
+        <div style={{ overflow: "hidden" }}>
+          <TopBar
+            ContainedButton={ContainedButton}
+            ButtonTypography={ButtonTypography}
+            />
+          <Container
+            sx={{
+              backgroundColor: "#ffffff",
+              zIndex: "100",
+              marginTop: "7rem",
+            }}
+          >
+            <Page
+              ContainedButton={ContainedButton}
+              ButtonTypography={ButtonTypography}
+              SubtitleTypography={SubtitleTypography}
+              TextTypography={TextTypography}
+              CardSubtitleTypography={CardSubtitleTypography}
+              CardBox={CardBox}
+            />
+          </Container>
+
+          <FooterBottomWave>
+            <FooterTopWave />
+            <Stack
+              direction="row"
+              justifyContent="space-around"
+              alignItems="center"
+              sx={{
+                color: "#fff",
+                paddingTop: "40px",
+              }}
+            >
+              <Stack direction="row">
+                <img style={{ width: 75, height: 75, fontFamily: 'Exo',}} src={whiteIcon} alt="" />
+
+                <Typography
+                  sx={{
+                    zIndex: 2000,
+
+                    fontSize: "36px",
+                    fontFamily: "Exo",
+                    fontWeight: "400",
+                    marginTop: "15px",
+                  }}
+                >
+                  Wh
+                </Typography>
+                <Typography
+                  sx={{
+                    fontSize: "36px",
+                    fontFamily: "Exo",
+                    fontWeight: "700",
+                    marginTop: "15px",
+                  }}
+                >
+                  atende
+                </Typography>
+              </Stack>
+              <TextTypography
+                sx={{
+                  marginTop: "100px",
+                  fontSize: "15px",
+                  color: "#e0e0e0",
+                  position: "absolute",
+                  fontFamily: "Exo",
+                }}
+              >
+                Feito com ♥ por RedeDigital
+              </TextTypography>
+
+              <Stack direction="row" spacing={2}>
+                <IconButton disabled sx={{ color: "#fff" }} size="large">
+                  <Facebook />
+                </IconButton>
+                <IconButton disabled sx={{ color: "#fff" }} size="large">
+                  <Instagram />
+                </IconButton>
+                <IconButton disabled sx={{ color: "#fff" }} size="large">
+                  <LinkedIn />
+                </IconButton>
+              </Stack>
+            </Stack>
+          </FooterBottomWave>
+        </div>
+      </ThemeProvider>
+    </StyledEngineProvider>
+  </>;
+}
+
+export default App;

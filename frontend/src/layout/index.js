@@ -261,13 +261,13 @@ const LoggedInLayout = ({ children }) => {
           <Typography
             component="h1"
             variant="h6"
-            color="primary"
+            color="#FFFFFF"
             noWrap
             className={classes.title}
           >
             {greaterThenSm ? (
               <>
-                Olá <b>{user.name}</b>, Seja bem-vindo.
+                Olá <b>{user.name}</b>, Seja bem-vindo ao WhAtende.
               </>
             ) : (
               user.name

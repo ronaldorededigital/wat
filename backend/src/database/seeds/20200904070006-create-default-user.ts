@@ -11,7 +11,7 @@ module.exports = {
           [
             {
               name: "Admin",
-              email: "admin@admin.com",
+              email: "admin@whatende.link",
               profile: "admin",
               passwordHash,
               companyId: 1,
