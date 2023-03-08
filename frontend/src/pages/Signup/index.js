@@ -83,7 +83,7 @@ const SignUp = () => {
 		companyId = params.companyId
 	}
 
-	const initialState = { name: "", email: "", telefone: "",password: "", planId: "", };
+	const initialState = { name: "", email: "", phone: "",password: "", planId: "", };
 
 	const [user] = useState(initialState);
 	const dueDate = moment().add(3, "day").format();
