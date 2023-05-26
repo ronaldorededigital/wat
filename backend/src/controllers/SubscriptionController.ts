@@ -163,8 +163,14 @@ export const webhook = async (
         const invoiceID = solicitacaoPagador.replace("#Fatura:", "");
         const invoices = await Invoices.findByPk(invoiceID);
         const companyId =invoices.companyId;
-        const company = await Company.findByPk(companyId);
-    
+		
+		if (invoices) {
+			await invoices.update({
+				status: "paid"
+				});
+		}
+		
+        const company = await Company.findByPk(companyId);	
         const expiresAt = new Date(company.dueDate);
         expiresAt.setDate(expiresAt.getDate() + 30);
         const date = expiresAt.toISOString().split("T")[0];

@@ -74,7 +74,6 @@ const UpdateUserService = async ({
     id: user.id,
     name: user.name,
     email: user.email,
-	phone: user.telefone,
     profile: user.profile,
     companyId: user.companyId,
     company,
